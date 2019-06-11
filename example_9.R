@@ -13,7 +13,9 @@ dir.create(example_folder, showWarnings = FALSE, recursive = TRUE)
 setwd(example_folder)
 set.seed(314)
 testit::assert(is_beast2_installed())
-phylogeny <- create_yule_tree(n_taxa = 6, crown_age = 10)
+phylogeny  <- ape::read.tree(
+  text = "(((A:8, B:8):1, C:9):1, ((D:8, E:8):1, F:9):1);"
+)
 
 alignment_params <- create_alignment_params(
   root_sequence = create_blocked_dna(length = 1000),
