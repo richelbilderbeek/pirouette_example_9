@@ -1,4 +1,4 @@
-# Code of example 7
+# Code of example 9
 #
 # Works under Windows
 library(pirouette)
@@ -7,7 +7,7 @@ suppressMessages(library(ggtree))
 library(beautier)
 
 root_folder <- getwd()
-example_no <- 7
+example_no <- 9
 example_folder <- file.path(root_folder, paste0("example_", example_no))
 dir.create(example_folder, showWarnings = FALSE, recursive = TRUE)
 setwd(example_folder)
