@@ -50,7 +50,14 @@ alignment_params <- create_alignment_params(
   rng_seed = rng_seed
 )
 
-experiment <- create_gen_experiment()
+experiment <- create_gen_experiment(
+  beast2_options = beastier::create_beast2_options(
+    input_filename = "input_gen.xml",
+    output_log_filename = "output_gen.log",
+    output_trees_filenames = "output_gen.trees",
+    output_state_filename = "output_state.xml.state"
+  )
+)
 experiments <- list(experiment)
 
 # Set the RNG seed
