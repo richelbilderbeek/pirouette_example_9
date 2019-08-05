@@ -43,14 +43,23 @@ testit::assert(is_beast2_installed())
 phylogeny  <- ape::read.tree(
   text = "(((A:8, B:8):1, C:9):1, ((D:8, E:8):1, F:9):1);"
 )
+ape::write.tree(phylogeny, file = "tree_true.fasta")
 
 alignment_params <- create_alignment_params(
+  fasta_filename = "alignment_gen.fasta",
   root_sequence = create_blocked_dna(length = 1000),
   mutation_rate = 0.1,
   rng_seed = rng_seed
 )
 
-experiment <- create_gen_experiment()
+experiment <- create_gen_experiment(
+  beast2_options = beastier::create_beast2_options(
+    input_filename = "input_gen.xml",
+    output_log_filename = "output_gen.log",
+    output_trees_filenames = "output_gen.trees",
+    output_state_filename = "output_state.xml.state"
+  )
+)
 experiments <- list(experiment)
 
 # Set the RNG seed
@@ -70,7 +79,9 @@ pir_params <- create_pir_params(
   experiments = experiments,
   twinning_params = create_twinning_params(
     rng_seed_twin_tree = rng_seed,
-    rng_seed_twin_alignment = rng_seed
+    rng_seed_twin_alignment = rng_seed,
+    twin_tree_filename = "tree_twin.newick",
+    twin_alignment_filename = "alignment_twin.fasta"
   )
 )
 
