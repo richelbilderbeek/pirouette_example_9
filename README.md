@@ -9,4 +9,6 @@ A [pirouette example](https://github.com/richelbilderbeek/pirouette_examples).
 
 ## Results
 
+![](example_9_42/errors.png)
+
 ![](example_9_314/errors.png)
