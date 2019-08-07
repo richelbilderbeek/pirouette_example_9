@@ -6,7 +6,7 @@
 #
 
 # Set the RNG seed
-rng_seed <- 31
+rng_seed <- 309
 args <- commandArgs(trailingOnly = TRUE)
 if (length(args) == 1) {
   arg <- suppressWarnings(as.numeric(args[1]))
@@ -48,7 +48,7 @@ ape::write.tree(phylogeny, file = "tree_true.fasta")
 alignment_params <- create_alignment_params(
   fasta_filename = "alignment_gen.fasta",
   root_sequence = create_blocked_dna(length = 1000),
-  mutation_rate = 0.1,
+  mutation_rate = 0.01,
   rng_seed = rng_seed
 )
 
