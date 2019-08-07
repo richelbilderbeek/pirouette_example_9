@@ -6,7 +6,7 @@
 #
 
 # Set the RNG seed
-rng_seed <- 309
+rng_seed <- 314
 args <- commandArgs(trailingOnly = TRUE)
 if (length(args) == 1) {
   arg <- suppressWarnings(as.numeric(args[1]))
