@@ -58,7 +58,7 @@ script:
   - travis_wait 60 Rscript example_9.R
   # Check dead links
   - rm .travis.yml
-  - ./scripts/check_dead_links || true
+  - ./scripts/check_dead_links
 
 after_success:
   - cd ~/GitHubs/pirouette_article; find .
