@@ -29,11 +29,13 @@ pir_params <- create_std_pir_params(
 # Remove candidates
 pir_params$experiments <- pir_params$experiments[1]
 
-# Shorter on Travis
 if (is_testing) {
   pir_params <- shorten_pir_params(pir_params)
 }
 
+################################################################################
+# Run pirouette
+################################################################################
 errors <- pir_run(
   phylogeny,
   pir_params = pir_params
